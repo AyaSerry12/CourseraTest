@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Lint HTML') {
       steps {
-        bat(script: 'Testing', returnStatus: true)
+        sh 'tidy -q -e *.html'
       }
     }
   }
