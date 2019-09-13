@@ -6,10 +6,10 @@ pipeline {
         sh 'tidy -q -e *.html'
       }
     }
-    stage(‘Upload to AWS’) {
+    stage('Upload to AWS') {
         steps {
-          withAWS(region:’us-east-1’,credentials:’aserry_2’) {
-            s3Upload(pathStyleAccessEnabled:true, payloadSigningEnabled: true, file:’index.html’, bucket:’proj2aserry’)
+          withAWS(region:'us-east-1',credentials:'aserry_2') {
+            s3Upload(pathStyleAccessEnabled:true, payloadSigningEnabled: true, file:'index.html', bucket:'proj2aserry')
           }
         }
       }
